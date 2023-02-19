@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import HomePage from '../../../features/home/page/homePage.lazy';
+import HomePage from '../../../features/home/page/HomePage.lazy';
 
 const AppLayout: FC = () => (
   <main>
