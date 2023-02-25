@@ -1,1 +1,27 @@
-.HomePage {}
+.HomePage {
+  --animation-delays: calc(6030ms);
+
+  overflow: hidden;
+  height: 100vh;
+  animation-name: showScrollBar;
+  animation-duration: 2s;
+  animation-fill-mode: forwards; 
+  animation-delay: var(--animation-delays);
+}
+
+@keyframes showScrollBar {
+  from {
+    overflow: hidden;
+    height: 100vh;
+  }
+  to {
+    overflow: initial;
+    height: unset;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .HomePage {
+    --animation-delays: calc(6030ms + 5s);
+  }
+}

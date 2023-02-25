@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from 'react';
-import FullPageLoader from '../../../shared/component/FullPageLoader/FullPageLoader';
+import FullPageLoader from '../../../shared/components/FullPageLoader/FullPageLoader';
 
 const LazyHomePage = lazy(() => import('./HomePage'));
 

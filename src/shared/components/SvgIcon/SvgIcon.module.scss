@@ -1,0 +1,16 @@
+.SvgIcon {
+  --icon-size-desktop: 24px;
+  --icon-size-mobile: 32px;
+
+  img {
+    height: var(--icon-size-mobile);
+    width: var(--icon-size-mobile);
+  }
+
+  @media only screen and (min-width: var(--large-screen-break-point)) {
+    img {
+      height: var(--icon-size-desktop);
+      width:  var(--icon-size-desktop);
+    }
+  }
+}
