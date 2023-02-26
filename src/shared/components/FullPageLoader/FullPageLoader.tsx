@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import styles from './fullPageLoader.module.scss';
+import styles from './FullPageLoader.module.scss';
 
 interface FullPageLoaderProps {
   component: string;
