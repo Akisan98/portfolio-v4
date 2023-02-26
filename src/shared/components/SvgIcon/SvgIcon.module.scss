@@ -1,0 +1,18 @@
+@import "../../../assets/scss/variables";
+
+$icon-size-desktop: 32px;
+$icon-size-mobile: 38px;
+
+.SvgIcon {
+  img {
+    height: $icon-size-mobile;
+    width: $icon-size-mobile;
+  }
+
+  @media (min-width: $large-screen-break-point) {
+    img {
+      height: $icon-size-desktop;
+      width:  $icon-size-desktop;
+    }
+  }
+}

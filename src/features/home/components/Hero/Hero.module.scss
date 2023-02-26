@@ -1,0 +1,193 @@
+@import "../../../../assets/scss/variables";
+@import "../../variables";
+
+.Hero {
+  --h3-total-height: 4.2em;
+  --button-height: 50px;
+
+  display: grid;
+  grid-template-columns: 5fr none;
+  min-height: 100vh;
+  overflow: hidden;
+
+  h1 {
+    font-size: 3em;
+    font-family: monospace;
+    text-transform: uppercase;
+    line-height: 1.5em;
+  }
+
+  h2 {
+    font-size: 1.17rem;
+    font-weight: 400;
+    line-height: 1.4em;
+    margin-bottom: 3em;
+  }
+}
+
+.left {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  &::before {    
+    content: "";
+    background-image: url('../../../../assets/teams_techie.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 30%;
+    opacity: 0.25;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+  }
+}
+
+.right {
+  display: none;
+}
+
+.icons {
+  margin-top: 2em;
+  display: flex;
+  gap: 16px;
+}
+
+
+// ------------------- Animation Part 2 -------------------
+
+@mixin animateItems($itemHeight, $class) {
+  $animation-name: unique-id();
+
+  @keyframes #{$animation-name} {
+    from {
+      opacity: 0;
+      height: 0;
+    }
+    30% {
+      opacity: 0;
+    }
+    to {
+      height: $itemHeight;
+      opacity: 1;
+    }
+  }
+
+  @if $class == icons {
+    .#{$class} {
+      animation-name: $animation-name;
+      @extend .animate-part-2;
+    }
+  } @else {
+    #{$class} {
+      animation-name: $animation-name;
+      @extend .animate-part-2;
+    }
+  }  
+}
+
+.animate-part-2 {
+  animation-duration: $animation-part-2-duration;
+  animation-delay: $animation-delay;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  height: 0;
+}
+
+// using the mixin:
+@include animateItems(var(--h3-total-height), h2);
+@include animateItems(var(--button-height), button);
+@include animateItems(32px, icons);
+
+// ------------------- Animation Part 2 -------------------
+
+@media (min-width: $large-screen-break-point) {
+  $h1-start: clamp(6em, 6.8vw, 12em);
+  $h1-end: clamp(3em, 3.5vw, 6em);
+
+  .Hero {
+    --h3-total-height: 2.8em;
+    --button-height: 60px;
+
+    animation-name: splitScreen;
+    @extend .animate-part-1;
+
+    h1 {
+      font-size: $h1-start;
+
+      animation-name: fontSize;
+      @extend .animate-part-1;
+    }
+
+    h2 {
+      font-size: 1.5em;
+    }
+  }
+
+  .hand {
+    animation-name: showHand;
+    @extend .animate-part-1;
+  }
+
+  .left {
+    padding: 48px;
+
+    &::before {
+      all: unset;
+    }
+  }
+
+  .right {
+    display: block;
+  }
+
+  // ------------------- Animation Part 1 -------------------
+  
+  @keyframes splitScreen {
+    from {
+      grid-template-columns: 5fr 0fr;
+    }
+    to {
+      grid-template-columns: 3fr 2fr;
+    }
+  }
+
+  @keyframes fontSize {
+    from { font-size: $h1-start; }
+    to { font-size: $h1-end; }
+  }
+
+  @keyframes showHand {
+    from {
+      width: 0%;
+      height: 0%;
+      top: 50%;
+    }
+    to {
+      position: relative;
+      height: 70%;
+      left: 5%;
+      top: 10%;
+    }
+  }
+
+  .animate-part-1 {
+    animation-duration: $animation-part-1-duration;
+    animation-fill-mode: forwards; 
+    animation-delay: $animation-delay;
+  }
+  
+  // ------------------- Animation Part 1 -------------------
+
+  // ------------------- Animation Part 2 -------------------
+
+  .animate-part-2 {
+    animation-delay: calc($animation-delay + $animation-part-1-duration);
+  }
+
+  // ------------------- Animation Part 2 -------------------
+}
