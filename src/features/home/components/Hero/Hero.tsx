@@ -4,7 +4,7 @@ import styles from './Hero.module.scss';
 
 import strings from '../../../../assets/strings.json'
 import DecodeTextAnimation from '../../../../shared/DecodeTextAnimation/DecodeTextAnimation';
-import hand from '../../../../assets/teams_hand.png'
+import techie from '../../../../assets/teams_techie.png'
 
 const Hero: FC = () => (
   <div className={styles.Hero} data-testid="Hero">
@@ -14,15 +14,15 @@ const Hero: FC = () => (
       <button onClick={() => alert('Heyooo')}>{strings.homePage.ctaButton}</button>
 
       <div className={styles.icons}>
-        <SvgIcon url={'https://github.com/Akisan98'} src={'Github'} alt={'Github Icon'} />
-        <SvgIcon url={'https://gitlab.com/Akisan98'} src={'GitLab'} alt={'GitLab Icon'} />
-        <SvgIcon url={'https://play.google.com/store/apps/developer?id=Akisan'} src={'Google Play'} alt={'Google Play Icon'} />
-        <SvgIcon url={'https://linkedin.com'} src={'LinkedIn'} alt={'LinkedIn Icon'} />
+        <SvgIcon url={'https://github.com/Akisan98'} src={'Github'} />
+        <SvgIcon url={'https://gitlab.com/Akisan98'} src={'GitLab'} />
+        <SvgIcon url={'https://play.google.com/store/apps/developer?id=Akisan'} src={'Google Play'} />
+        <SvgIcon url={'https://linkedin.com'} src={'LinkedIn'} />
       </div>
     </div>
 
     <div className={styles.right}>
-      <img className={styles.hand} src={hand} alt={'Microsoft Teams - Waving Hand'} />
+      <img className={styles.hand} src={techie} alt={'Microsoft Teams - Techie Guy'} />
     </div>
   </div>
 );

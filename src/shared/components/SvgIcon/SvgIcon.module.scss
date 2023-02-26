@@ -1,16 +1,18 @@
-.SvgIcon {
-  --icon-size-desktop: 24px;
-  --icon-size-mobile: 32px;
+@import "../../../assets/scss/variables";
 
+$icon-size-desktop: 32px;
+$icon-size-mobile: 38px;
+
+.SvgIcon {
   img {
-    height: var(--icon-size-mobile);
-    width: var(--icon-size-mobile);
+    height: $icon-size-mobile;
+    width: $icon-size-mobile;
   }
 
-  @media only screen and (min-width: var(--large-screen-break-point)) {
+  @media (min-width: $large-screen-break-point) {
     img {
-      height: var(--icon-size-desktop);
-      width:  var(--icon-size-desktop);
+      height: $icon-size-desktop;
+      width:  $icon-size-desktop;
     }
   }
 }

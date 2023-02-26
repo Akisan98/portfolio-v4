@@ -8,22 +8,21 @@ import GooglePlay from '../../../assets/googlePlay.svg'
 export interface SvgIconProps {
   url: string;
   src: IconName;
-  alt: string;
 }
 
 export type IconName = 'Github' | 'LinkedIn' | 'GitLab' | 'Google Play';
 
 const iconMap = new Map<IconName, any>([
-  ["Github", GitHub],
-  ["LinkedIn", LinkedIn],
-  ["GitLab", GitLab],
-  ['Google Play', GooglePlay]
+  ["Github", [GitHub, "Github Icon"]],
+  ["LinkedIn", [LinkedIn, "LinkedIn Icon"]],
+  ["GitLab", [GitLab, "GitLab Icon"]],
+  ['Google Play', [GooglePlay, "Google Play Icon"]]
 ]);
 
-const SvgIcon: FC<SvgIconProps> = ({url, src, alt}) => (
+const SvgIcon: FC<SvgIconProps> = ({url, src}) => (
   <>
     <a className={styles.SvgIcon} href={url} target="_blank" data-testid="SvgIcon">
-      <img src={iconMap.get(src)} alt={alt} />
+      <img src={iconMap.get(src)[0]} alt={iconMap.get(src)[1]} />
     </a>
   </>
 );

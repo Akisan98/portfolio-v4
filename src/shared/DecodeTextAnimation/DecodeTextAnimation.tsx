@@ -1,4 +1,5 @@
 import React, { FC, useEffect, useState } from 'react';
+import styles from "./DecodeTextAnimation.module.scss";
 
 const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
@@ -35,15 +36,15 @@ const DecodeTextAnimation: FC<DecodeTextAnimationProps> = ({decodedText}) => {
   const [animatedText, setAnimatedText] = useState(decodedText);
 
   useEffect(() => {
-    letterAnimation(decodedText, animatedText, setAnimatedText, 30);
+    letterAnimation(decodedText, animatedText, setAnimatedText, 10);
   },[]);
 
   const clicked = () => {
-    letterAnimation(decodedText, animatedText, setAnimatedText, 30);
+    letterAnimation(decodedText, animatedText, setAnimatedText, 10);
   };
 
   return (
-    <span style={{ cursor: "var(--emoji-detective)" }} onClick={clicked} data-testid="DecodeTextAnimation">
+    <span className={styles.DecodeTextAnimation} onClick={clicked} data-testid="DecodeTextAnimation">
       {animatedText || decodedText}
     </span>
   );

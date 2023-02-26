@@ -1,18 +1,12 @@
+@import "../../../../assets/scss/variables";
+@import "../../variables";
+
 .Hero {
-  --animation-delay: 6030ms;
-  --animation-part-1-duration: 5s;
-  --animation-part-2-duration: 3s;
-
-  --grid-start: 5fr none;
-
-  --h1-start: clamp(6em, 6.8vw, 12em);
-  --h1-end: clamp(3em, 3.5vw, 6em);
-
   --h3-total-height: 4.2em;
   --button-height: 50px;
 
   display: grid;
-  grid-template-columns: var(--grid-start);
+  grid-template-columns: 5fr none;
   min-height: 100vh;
   overflow: hidden;
 
@@ -40,7 +34,7 @@
 
   &::before {    
     content: "";
-    background-image: url('../../../../assets/teams_hand.png');
+    background-image: url('../../../../assets/teams_techie.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 30%;
@@ -97,8 +91,8 @@
 }
 
 .animate-part-2 {
-  animation-duration: var(--animation-part-2-duration);
-  animation-delay: var(--animation-delay);
+  animation-duration: $animation-part-2-duration;
+  animation-delay: $animation-delay;
   animation-fill-mode: forwards;
   opacity: 0;
   height: 0;
@@ -111,10 +105,11 @@
 
 // ------------------- Animation Part 2 -------------------
 
-@media only screen and (min-width: 1200px) {
-  .Hero {
-    --grid-end: 3fr 2fr;
+@media (min-width: $large-screen-break-point) {
+  $h1-start: clamp(6em, 6.8vw, 12em);
+  $h1-end: clamp(3em, 3.5vw, 6em);
 
+  .Hero {
     --h3-total-height: 2.8em;
     --button-height: 60px;
 
@@ -122,7 +117,7 @@
     @extend .animate-part-1;
 
     h1 {
-      font-size: var(--h1-start);
+      font-size: $h1-start;
 
       animation-name: fontSize;
       @extend .animate-part-1;
@@ -157,13 +152,13 @@
       grid-template-columns: 5fr 0fr;
     }
     to {
-      grid-template-columns: var(--grid-end);
+      grid-template-columns: 3fr 2fr;
     }
   }
 
   @keyframes fontSize {
-    from { font-size: var(--h1-start); }
-    to { font-size: var(--h1-end); }
+    from { font-size: $h1-start; }
+    to { font-size: $h1-end; }
   }
 
   @keyframes showHand {
@@ -181,9 +176,9 @@
   }
 
   .animate-part-1 {
-    animation-duration: var(--animation-part-1-duration);
+    animation-duration: $animation-part-1-duration;
     animation-fill-mode: forwards; 
-    animation-delay: var(--animation-delay);
+    animation-delay: $animation-delay;
   }
   
   // ------------------- Animation Part 1 -------------------
@@ -191,7 +186,7 @@
   // ------------------- Animation Part 2 -------------------
 
   .animate-part-2 {
-    animation-delay: calc(var(--animation-delay) + var(--animation-part-1-duration));
+    animation-delay: calc($animation-delay + $animation-part-1-duration);
   }
 
   // ------------------- Animation Part 2 -------------------
