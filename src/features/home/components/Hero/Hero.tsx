@@ -3,7 +3,7 @@ import SvgIcon from '../../../../shared/components/SvgIcon/SvgIcon';
 import styles from './Hero.module.scss';
 
 import strings from '../../../../assets/strings.json'
-import DecodeTextAnimation from '../../../../shared/DecodeTextAnimation/DecodeTextAnimation';
+import DecodeTextAnimation from '../../../../shared/components/DecodeTextAnimation/DecodeTextAnimation';
 import techie from '../../../../assets/teams_techie.png'
 
 const Hero: FC = () => (
