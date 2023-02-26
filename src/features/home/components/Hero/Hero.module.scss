@@ -6,7 +6,7 @@
   --button-height: 50px;
 
   display: grid;
-  grid-template-columns: 5fr none;
+  grid-template-columns: 100vw 0px;
   min-height: 100vh;
   overflow: hidden;
 
@@ -106,7 +106,7 @@
 // ------------------- Animation Part 2 -------------------
 
 @media (min-width: $large-screen-break-point) {
-  $h1-start: clamp(6em, 6.8vw, 12em);
+  $h1-start: clamp(6em, 6.5vw, 12em);
   $h1-end: clamp(3em, 3.5vw, 6em);
 
   .Hero {
@@ -124,7 +124,7 @@
     }
 
     h2 {
-      font-size: 1.5em;
+      font-size: 1.2em;
     }
   }
 
