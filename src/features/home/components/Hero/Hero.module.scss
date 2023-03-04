@@ -1,5 +1,11 @@
 @import "../../../../assets/scss/variables";
-@import "../../variables";
+
+:root {
+  --animation-delay: 3s;
+
+  --animation-part-1-duration: calc(2160ms + 500ms);
+  --animation-part-2-duration: 2s;
+}
 
 .Hero {
   --h3-total-height: 4.2em;
@@ -91,8 +97,8 @@
 }
 
 .animate-part-2 {
-  animation-duration: $animation-part-2-duration;
-  animation-delay: $animation-delay;
+  animation-duration: var(--animation-part-2-duration);
+  animation-delay: var(--animation-delay);
   animation-fill-mode: forwards;
   opacity: 0;
   height: 0;
@@ -176,9 +182,9 @@
   }
 
   .animate-part-1 {
-    animation-duration: $animation-part-1-duration;
+    animation-duration: var(--animation-part-1-duration);
     animation-fill-mode: forwards; 
-    animation-delay: $animation-delay;
+    animation-delay: var(--animation-delay);
   }
   
   // ------------------- Animation Part 1 -------------------
@@ -186,7 +192,7 @@
   // ------------------- Animation Part 2 -------------------
 
   .animate-part-2 {
-    animation-delay: calc($animation-delay + $animation-part-1-duration);
+    animation-delay: calc(var(--animation-delay) + var(--animation-part-1-duration));
   }
 
   // ------------------- Animation Part 2 -------------------

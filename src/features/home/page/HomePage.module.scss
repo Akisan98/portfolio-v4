@@ -1,13 +1,12 @@
 @import "../../../assets/scss/variables";
-@import "../variables";
 
 .HomePage {
   overflow: hidden;
   height: 100vh;
   animation-name: showScrollBar;
-  animation-duration: $animation-part-2-duration;
+  animation-duration: var(--animation-part-2-duration);
   animation-fill-mode: forwards; 
-  animation-delay: $animation-delay;
+  animation-delay: var(--animation-delay);
 }
 
 @keyframes showScrollBar {
@@ -25,6 +24,6 @@
   .HomePage {
     // Big Screens have the SplitScreen Animation as well.
 
-    animation-delay: calc($animation-delay + $animation-part-1-duration);
+    animation-delay: calc(var(--animation-delay) + var(--animation-part-1-duration));
   }
 }
