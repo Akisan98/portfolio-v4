@@ -1,0 +1,31 @@
+@import "../../../assets/scss/variables";
+
+.Footer {
+  overflow: hidden;
+  height: 0;
+  animation-name: showContent;
+  animation-duration: var(--animation-part-2-duration);
+  animation-fill-mode: forwards; 
+  animation-delay: var(--animation-delay);
+
+  text-align: center;
+}
+
+@keyframes showContent {
+  from {
+    overflow: hidden;
+    height: 0;
+  }
+  to {
+    overflow: initial;
+    height: unset;
+  }
+}
+
+@media (min-width: $large-screen-break-point) {
+  .Footer {
+    // Big Screens have the SplitScreen Animation as well.
+
+    animation-delay: calc(var(--animation-delay) + var(--animation-part-1-duration));
+  }
+}
